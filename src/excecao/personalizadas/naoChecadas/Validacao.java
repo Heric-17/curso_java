@@ -1,5 +1,7 @@
 package excecao.personalizadas.naoChecadas;
 
+import excecao.personalizadas.checadas.NaoPodeNuloException;
+
 public interface Validacao {
 
 	public static boolean usuario(Usuario usuario) {
@@ -18,6 +20,14 @@ public interface Validacao {
 		
 		return true;
 		
+	}
+	
+	public static boolean isNull(String texto) throws NaoPodeNuloException{
+		if(texto != null) {
+			return false;
+		}
+		
+		throw new NaoPodeNuloException(); 
 	}
 
 }
